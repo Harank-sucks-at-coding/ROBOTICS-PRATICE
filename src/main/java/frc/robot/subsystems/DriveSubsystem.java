@@ -15,8 +15,9 @@ import frc.robot.RobotMap;
 public class DriveSubsystem extends SubsystemBase {
   private static final WPI_TalonFX leftBackMotor= RobotMap.backLeftMotor;
   private static final WPI_TalonFX rightBackMotor= RobotMap.backRightMotor;
-  private static final WPI_TalonFX leftFrontMotor= RobotMap.frontRightMotor;
-  private static final WPI_TalonFX rightFrontMotor= RobotMap.frontLeftMotor;
+  private static final WPI_TalonFX leftFrontMotor= RobotMap.frontLeftMotor;
+  private static final WPI_TalonFX rightFrontMotor= RobotMap.frontRightMotor;
+
   private static final double IN_TO_M=.0254;
   private static final int MOTOR_ENCODER_CODES_PER_REV=2048;
   private static final double DIAMETER_INCHES=5.0;
@@ -70,10 +71,10 @@ public class DriveSubsystem extends SubsystemBase {
     rightFrontMotor.setNeutralMode(NeutralMode.Coast);
     rightBackMotor.setNeutralMode(NeutralMode.Coast);
 
-    leftFrontMotor.setInverted(false);
-    rightFrontMotor.setInverted(true);
-    leftBackMotor.setInverted(false);
-    rightBackMotor.setInverted(true);
+    leftFrontMotor.setInverted(true);
+    rightFrontMotor.setInverted(false);
+    leftBackMotor.setInverted(true);
+    rightBackMotor.setInverted(false);
   } 
 
   public void resetEncoders(){
@@ -84,10 +85,8 @@ public class DriveSubsystem extends SubsystemBase {
   }
 
   public static void drive(double throttle, double rotate){
-    leftFrontMotor.set(throttle+rotate);
-    rightFrontMotor.set(throttle-rotate);
-    leftBackMotor.set(throttle+rotate);
-    rightBackMotor.set(throttle-rotate);
+    leftBackMotor.set(throttle + rotate);
+    rightBackMotor.set(throttle - rotate);
   } 
 
   public void stop(){

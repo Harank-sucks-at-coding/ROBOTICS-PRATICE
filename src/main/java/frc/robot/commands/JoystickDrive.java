@@ -34,7 +34,7 @@ public class JoystickDrive extends CommandBase {
         rotate=0;
       }
 
-      driveSubsystem.drive(throttle, rotate);
+      driveSubsystem.drive(throttle, -rotate);
   }
 
   // Called once the command ends or is interrupted.
