@@ -7,10 +7,11 @@ public class RobotMap {
     public static int frontRightMotorPort = 4;
     public static int backLeftMotorPort = 1;
     public static int backRightMotorPort = 2;
+    public static int intakeMotorPort = 5;
     
     public static WPI_TalonFX frontLeftMotor = new WPI_TalonFX(frontLeftMotorPort);
     public static WPI_TalonFX frontRightMotor = new WPI_TalonFX(frontRightMotorPort);
     public static WPI_TalonFX backLeftMotor = new WPI_TalonFX(backLeftMotorPort);
     public static WPI_TalonFX backRightMotor = new WPI_TalonFX(backRightMotorPort);
-    
+    public static WPI_TalonFX intakeMotor = new WPI_TalonFX(intakeMotorPort);
 }

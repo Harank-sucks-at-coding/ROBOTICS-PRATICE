@@ -4,12 +4,19 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.CommandBase;
+import frc.robot.RobotContainer;
+import frc.robot.subsystems.IntakeSubsystem;
 
 public class Rollntake extends CommandBase {
-  /** Creates a new Rollntake. */
-  public Rollntake() {
-    // Use addRequirements() here to declare subsystem dependencies.
+  private final IntakeSubsystem intakeSubsystem;
+
+  private final static XboxController driverController= RobotContainer.driverController;
+
+  public Rollntake(IntakeSubsystem subsystem) {
+    intakeSubsystem = subsystem;
+    addRequirements(intakeSubsystem);
   }
 
   // Called when the command is initially scheduled.
@@ -18,7 +25,16 @@ public class Rollntake extends CommandBase {
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
-  public void execute() {}
+  public void execute() {
+    if(driverController.getBButtonPressed()){
+      intakeSubsystem.setIntakeSpeed(0.5);
+    } else if (driverController.getAButton()){
+      intakeSubsystem.setIntakeSpeed(-0.5);
+    }
+    else {
+      intakeSubsystem.stop();
+    }
+  }
 
   // Called once the command ends or is interrupted.
   @Override

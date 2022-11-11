@@ -88,6 +88,9 @@ public class DriveSubsystem extends SubsystemBase {
     leftBackMotor.set(throttle + rotate);
     rightBackMotor.set(throttle - rotate);
   } 
+  public double getLeftBackMotorEncoder(){
+    return leftBackMotor.getSelectedSensorPosition();
+  }
 
   public void stop(){
     drive(0,0);
