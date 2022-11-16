@@ -12,6 +12,7 @@ import frc.robot.commands.Rollntake;
 import frc.robot.subsystems.DriveSubsystem;
 import frc.robot.subsystems.ExampleSubsystem;
 import frc.robot.subsystems.IntakeSubsystem;
+import frc.robot.subsystems.LimelightSubsystem;
 import edu.wpi.first.wpilibj2.command.Command;
 
 /**
@@ -30,6 +31,7 @@ public class RobotContainer {
 
 
   private final IntakeSubsystem intakeSubsystem = new IntakeSubsystem();
+  public final LimelightSubsystem limelightSubsystem = new LimelightSubsystem();
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the button bindings
